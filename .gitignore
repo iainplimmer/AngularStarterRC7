@@ -1,2 +1,11 @@
 node_modules
 app/*.js
+app/*.map
+app/components/*.js
+app/components/*.map
+app/types/*.js
+app/types/*.map
+typings
+npm-debug.log
+.ds_Store
+
