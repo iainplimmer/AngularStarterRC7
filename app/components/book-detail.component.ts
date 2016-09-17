@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from './../types/book';
 
 @Component({
@@ -15,13 +15,24 @@ import { Book } from './../types/book';
         <label>Book Name</label>
         <input [(ngModel)]="book.BookName" placeholder="name"/>
       </div>
+      <div>
+        <button (click)="SaveDetail()">Save</button>
+      </div>
     </div>
   `
 })
 
 export class BookDetailComponent {
-  @Input()
-  book: Book;
+  @Input() book: Book;
+  @Output() detailChange = new EventEmitter<any>();
+
+  SaveDetail(): void {
+    this.detailChange.emit('Book Data Saved.');
+  }
+
+  ResetDetail(): void {
+    //   Todo
+  }
 
   ClearForm(): void {
    this.book = null;

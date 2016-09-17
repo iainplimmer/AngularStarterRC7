@@ -5,15 +5,17 @@ import { Book } from './../types/book';
   selector: 'book-list',
   template: `
     <h2>{{title}}</h2>
+    <h3 *ngIf="message">{{message}}</h3>
     <p *ngFor="let book of books">
         <a href="#" (click)="onSelect(book)">{{book.BookName}}</a>
-        <rating [book]="book" (ratingChange)="onRatingChange($event);"></rating>        
+        <rating [book]="book" (ratingChange)="onBookChange($event);"></rating>        
     </p>    
-    <my-book-detail [book]="selectedBook"></my-book-detail>`  
+    <my-book-detail [book]="selectedBook" (detailChange)="onBookChange($event);"></my-book-detail>`  
 })
 export class BookListComponent implements OnInit {
 
-    title = 'All the books';    
+    title = 'All the books';
+    message = null;    
     selectedBook: Book;
 
     @Input() books: Book[];
@@ -24,8 +26,8 @@ export class BookListComponent implements OnInit {
         //  Any startup goes here if requires
     }
 
-    onRatingChange(message: string) {
-        console.log(message);
+    onBookChange(notificationMessage: string) {
+        this.message = notificationMessage;
     }
 
     onSelect(selectedBook: Book): void {
