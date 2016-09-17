@@ -10,6 +10,7 @@ import { Book } from './../types/book';
         <button (click)="ClearForm()">Close</button>
       </h2>
       <div><label>BookID </label>{{book.BookId}}</div>
+      <div><label>Star Rating </label>{{book.StarRating}}</div>
       <div>
         <label>Book Name</label>
         <input [(ngModel)]="book.BookName" placeholder="name"/>
