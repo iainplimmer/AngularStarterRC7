@@ -12,18 +12,27 @@ export class BookService {
 
     }
 
+    //  Service created to get a list of books from the mock database
     GetBooks(): Promise<Book[]> {
         return this.http.get(this.url)
             .toPromise()            
             .then(function (response) { 
                 return response.json(); 
             })
-            .catch(this.handleError);
+            .catch(function (error) {
+                return Promise.reject(error.message || error);
+            });
     }
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+    //  Let's first mock updating the book
+    UpdateBook(book: Book): Promise<boolean> {
+        return this.http.post(this.url, book)
+            .toPromise()            
+            .then(function (response) { 
+                return response.json(); 
+            })
+            .catch(function (error) {
+                return Promise.reject(error.message || error);
+            });
     }
-
 }

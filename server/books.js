@@ -46,4 +46,8 @@ module.exports = function(app){
     app.get('/', function(req, res){
 		res.send(books);
     });
+
+    app.post('/', function(req, res){
+        res.send(true);
+    })
 }

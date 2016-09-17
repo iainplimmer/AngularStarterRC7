@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent }  from './app.component';
 import { BookDetailComponent } from './components/book-detail.component';
+import { BookListComponent } from './components/book-list.component';
+import { RatingComponent } from './components/rating.component';
 import { HttpModule }    from '@angular/http';
 
 @NgModule({
@@ -13,7 +15,9 @@ import { HttpModule }    from '@angular/http';
   ],
   declarations: [
     AppComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    BookListComponent,
+    RatingComponent
   ],
   bootstrap: [ AppComponent ]
 })
