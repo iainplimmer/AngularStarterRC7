@@ -22,9 +22,12 @@ export class RatingComponent {
 
     }
 
-    UpdateBook(): boolean {
+    UpdateBook(): void {
         this.bookService.UpdateBook(this.book).then(function (response) {
-            return response;
+            //  Do something here
+        })
+        .catch(function (error) {
+            //  and here.....
         });
     }
 
