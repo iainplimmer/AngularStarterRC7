@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from './../types/book';
 import { BookService } from './../services/book.service';
 
@@ -15,20 +15,21 @@ import { BookService } from './../services/book.service';
 
 export class RatingComponent {
     
-    @Input()
-    book: Book;
+    @Input() book: Book;
+    @Output() ratingChange = new EventEmitter<any>();
     
     constructor (private bookService: BookService) {
 
     }
 
-    UpdateBook(): void {
+    UpdateBook(): void {        
+        let that = this;
         this.bookService.UpdateBook(this.book).then(function (response) {
-            //  Do something here
+            that.ratingChange.emit('Rating changed OK');
         })
         .catch(function (error) {
-            //  and here.....
-        });
+            that.ratingChange.emit('There was an error and the rating was not altered.');
+        });    
     }
 
     IncreaseRating(): void {

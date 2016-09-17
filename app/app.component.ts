@@ -5,7 +5,7 @@ import { BookService } from './services/book.service';
 @Component({
   selector: 'book-store',
   template: `
-    <h1>Express Bookstore! Based on Angular 2 QuickStart</h1>
+    <h1>Express Bookstore! Based on Angular 2 QuickStart</h1>   
     <book-list [books]=books></book-list>
     `,
   providers: [BookService]
