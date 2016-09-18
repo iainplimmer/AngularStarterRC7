@@ -4,13 +4,7 @@ import { BookService } from './../services/book.service';
 
 @Component({
   selector: 'rating',
-  template: `
-   <div>
-        {{book.StarRating}}
-        <button (click)="IncreaseRating()">+</button>
-        <button (click)="DecreaseRating()">-</button>
-   </div>
-  `
+  templateUrl: './app/templates/rating.component.html'
 })
 
 export class RatingComponent {
