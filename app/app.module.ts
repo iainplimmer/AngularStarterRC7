@@ -7,6 +7,7 @@ import { BookListComponent } from './components/book-list.component';
 import { RatingComponent } from './components/rating.component';
 import { HttpModule }    from '@angular/http';
 import { BookService } from './services/book.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   //  Other modules whose exported classes are needed by component templates declared in this module.
@@ -20,7 +21,8 @@ import { BookService } from './services/book.service';
     BookStoreComponent,
     BookDetailComponent,
     BookListComponent,
-    RatingComponent
+    RatingComponent,
+    HighlightDirective
   ],
   //  NOTE: You can also include these in components too, but creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
   providers: [

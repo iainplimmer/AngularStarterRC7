@@ -1,6 +1,6 @@
 <h2>{{title}}</h2>
 <h3 *ngIf="message">{{message}}</h3>
-<p *ngFor="let book of books">
+<p *ngFor="let book of books" class="none" highlightElement>
     <a href="#" (click)="onSelect(book)">{{book.BookName}}</a>
     <rating [book]="book" (ratingChange)="onBookChange($event);"></rating>        
 </p>    
